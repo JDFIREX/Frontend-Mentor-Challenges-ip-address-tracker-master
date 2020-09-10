@@ -1,5 +1,4 @@
 *{
-    position: relative; top: 0; left: 0;
     margin: 0; padding: 0;
     border: none;
     box-sizing: border-box;
@@ -9,4 +8,100 @@ body{
     font-family: 'Rubik', sans-serif;
     width: 100%;
     min-height: 100vh;
+}
+header{
+    position: relative; top: 0; left: 0;
+    width: 100%;
+    height: 249px;
+    background-image: url("images/pattern-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 6rem;
+}
+header h1{
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: white;
+    font-size: 3rem;
+    font-weight: 500;
+}
+.search{
+    width: 40%;
+    height: 3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+}
+.search input{
+    width: 88%;
+    height: 100%;
+    padding: 0rem 1rem;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: none;
+    outline: none;
+    text-decoration: none;
+}
+.search button{
+    width: 12%;
+    height: 100%;
+    padding: 0rem 1rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: hsl(0, 0%, 17%);
+    border: none;
+    outline: none;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20000;
+}
+nav{
+    position: absolute;
+    bottom: -4rem;
+    height: 8rem;
+    width: 80%;
+    background-color: white;
+    z-index: 2;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav_list{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav_item{
+    width: 24%;
+    height: 60%;
+    border-right: 1px solid hsl(0, 0%, 59%);
+}
+.nav_item:nth-child(4){
+    border-right: none;
+}
+.nav_item p {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.nav_item h1{
+    color: black;
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+    margin-top: 0.5rem;
+}
+.map{
+    width: 100vw;
+    height: calc(100vh - 249px);
 }
