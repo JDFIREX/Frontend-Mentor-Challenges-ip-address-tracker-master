@@ -4,7 +4,8 @@ let Timezone = document.querySelector("#Timezone")
 let ISP = document.querySelector("#ISP")
 
 window.addEventListener('onload', checkLocalIp(ip = 0,first = true))
-//  local ip
+
+// ip
 
 function checkLocalIp(ip,first){
         
@@ -45,6 +46,7 @@ function checkLocalIp(ip,first){
 
 
 // mapbox
+
 function map(lat,lon){
         mapboxgl.accessToken = 'pk.eyJ1IjoiamRmaXJleCIsImEiOiJja2JmZXBhY3QwdWw2MnNxZTlnY2N1ZDM4In0.Q34Lq3f1apoEpcn8teup1w';
         var map = new mapboxgl.Map({

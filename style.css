@@ -9,6 +9,10 @@ body{
     width: 100%;
     min-height: 100vh;
 }
+main{
+    position: relative;
+    height: 100%;
+}
 header{
     position: relative; top: 0; left: 0;
     width: 100%;
@@ -105,15 +109,108 @@ nav{
 .map_box{
     position: relative; top: 0; left: 0;
     width: 100vw;
-    height: calc(100vh - 249px);
+    height: 80vh;
 }
 .map{
     width: 100%;
-    height: 100%;;
+    min-height: 600px;
+    height: 100%;
 }
 #menu {
-    position: absolute; bottom: 40px; right: 0;
+    position: absolute; bottom: 10%; right: 0;
     background: #fff;
     padding: 10px;
     font-family: 'Open Sans', sans-serif;
+}
+
+@media only screen and (max-width: 1200px){
+    .nav_item h1{
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 1000px){
+    header{
+        position: relative; top: 0; left: 0;
+        width: 100%;
+        height: 300px;
+    }
+    nav{
+        bottom: -20rem;
+        height: auto;
+        width: 80%;
+    }
+    .nav_list{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .nav_item{
+        padding: 1rem;
+        width: 80%;
+        height: 60%;
+        border-right: none;
+        border-bottom: 1px solid hsl(0, 0%, 59%);
+        text-align: center;
+    }
+    .nav_item:nth-child(4){
+        border-right: none;
+    }
+    .nav_item h1{
+        font-size: 1.5rem;
+    }
+    .search{
+        width: 60%;
+        height: 3.5rem;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .search{
+        width: 80%;
+        height: 3.5rem;
+    }
+    .map_box{
+        position: relative; top: 0; left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+}
+@media only screen and (max-width: 500px){
+    .search{
+        width: 90%;
+    }
+    nav{
+        width: 90%;
+        bottom: -16rem;
+    }
+    header h1{
+        font-size: 2.5rem;
+    }
+    .nav_item h1{
+        font-size: 1.2rem;
+    }
+    .nav_item p {
+        font-size: .9rem;
+    }
+}
+@media only screen and (max-width: 450px){
+    nav{
+        bottom: -9rem;
+    }
+    header h1{
+        font-size: 2rem;
+    }
+    .nav_item h1{
+        font-size: 1rem;
+    }
+    .nav_item{
+        padding: .3rem;
+    }
+    #menu {
+        width: 100%;
+        font-size: 1rem;
+    }
 }
