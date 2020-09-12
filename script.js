@@ -10,7 +10,7 @@ window.addEventListener('onload', checkLocalIp(ip = 0,first = true))
 function checkLocalIp(ip,first){
         
         let fetchurl = "";
-        first ? fetchurl = `http://ip-api.com/json/?fields=66846719` : fetchurl = `http://ip-api.com/json/${ip}?fields=66846719` 
+        first ? fetchurl = `https://ip-api.com/json/?fields=66846719` : fetchurl = `https://ip-api.com/json/${ip}?fields=66846719` 
         
         fetch(fetchurl)
         .then( reponse => reponse.json())
