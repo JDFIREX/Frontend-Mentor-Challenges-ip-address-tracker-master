@@ -10,7 +10,7 @@ window.addEventListener('onload', checkLocalIp(ip = 0,first = true))
 function checkLocalIp(ip,first){
         
         let fetchurl = "";
-        first ? fetchurl = `https://ip-api.com/json/?fields=66846719` : fetchurl = `https://ip-api.com/json/${ip}?fields=66846719` 
+        first ? fetchurl = `https://geo.ipify.org/api/v1?apiKey=at_a2km93nsey9gJpgeNW8aTVAwW5QuR` : fetchurl = `https://geo.ipify.org/api/v1?apiKey=at_a2km93nsey9gJpgeNW8aTVAwW5QuR&domain=${ip}` ;
         
         fetch(fetchurl)
         .then( reponse => reponse.json())
@@ -19,25 +19,14 @@ function checkLocalIp(ip,first){
                         alert(result.message)
                         window.location.reload()
                 }else{
+                        Address.innerHTML = result.ip;
+                        Location.innerHTML = result.location.city;
+                        Timezone.innerHTML = `UTC ${result.location.timezone}`;
+                        ISP.innerHTML = result.isp;
 
-                        Address.innerHTML = result.query;
-                        Location.innerHTML = result.city;
-                        if(typeof result.offset == "Number"){
-                                let offset = result.offset / 3600;
-                                offset > 0 ? offset = `+${offset}` : offset = offset
-                                Timezone.innerHTML = `UTC ${offset}`;
-                        }else{
-                                Timezone.innerHTML = result.timezone
-                        }
-                        ISP.innerHTML = result.isp
-
-                        let lat = result.lat
-                        let lon = result.lon;
+                        let lat = result.location.lat;
+                        let lon = result.location.lng;
                         map(lat,lon)
-
-                        if(!first){
-                                return 1;
-                        }
                 } 
         })
 
@@ -75,15 +64,10 @@ function map(lat,lon){
 
 let submit = document.querySelector('#submit')
 let input = document.querySelector('#search');
-let searching = false;
 
 submit.addEventListener('click', () => setIp(input))
 
 function setIp(input){
         let value  = input.value;
-        if(searching == false){
-                searching = true;
-                let finish = checkLocalIp(value,first = false);
-                finish == 1 ? searching = false : null;
-        }
+        checkLocalIp(value,first = false);
 }
