@@ -1,7 +1,7 @@
 let Address = document.querySelector("#Address")
 let Location = document.querySelector("#Location")
 let Timezone = document.querySelector("#Timezone")
-let ISP = document.querySelector("#ISP")
+let ISPelement = document.querySelector("#ISP")
 
 window.addEventListener('onload', checkLocalIp(ip = 0,first = true))
 
@@ -22,7 +22,7 @@ function checkLocalIp(ip,first){
                         Address.innerHTML = result.ip;
                         Location.innerHTML = result.location.city;
                         Timezone.innerHTML = `UTC ${result.location.timezone}`;
-                        ISP.innerHTML = result.isp;
+                        ISPelement.innerHTML = result.isp;
 
                         let lat = result.location.lat;
                         let lon = result.location.lng;
