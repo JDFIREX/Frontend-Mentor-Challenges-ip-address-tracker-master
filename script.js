@@ -3,21 +3,22 @@ let Location = document.querySelector("#Location")
 let Timezone = document.querySelector("#Timezone")
 let ISPelement = document.querySelector("#ISP")
 
-window.addEventListener('onload', checkLocalIp(ip = 0,first = true))
+window.addEventListener('onload', checkLocalIp("https://geo.ipify.org/api/v1?apiKey=at_a2km93nsey9gJpgeNW8aTVAwW5QuR"))
+
 
 // ip
 
-function checkLocalIp(ip,first){
-        
-        let fetchurl = "";
-        first ? fetchurl = `https://geo.ipify.org/api/v1?apiKey=at_a2km93nsey9gJpgeNW8aTVAwW5QuR` : fetchurl = `https://geo.ipify.org/api/v1?apiKey=at_a2km93nsey9gJpgeNW8aTVAwW5QuR&domain=${ip}` ;
-        
-        fetch(fetchurl)
+function checkLocalIp(ip){
+         
+        fetch(ip)
         .then( reponse => reponse.json())
+        .catch(function(err) {
+                alert(err)
+                alert("turn of addblocker")
+            })
         .then( result =>{
                 if(result.status == "fail"){
                         alert(result.message)
-                        window.location.reload()
                 }else{
                         Address.innerHTML = result.ip;
                         Location.innerHTML = result.location.city;
@@ -69,5 +70,5 @@ submit.addEventListener('click', () => setIp(input))
 
 function setIp(input){
         let value  = input.value;
-        checkLocalIp(value,first = false);
+        checkLocalIp(`https://geo.ipify.org/api/v1?apiKey=at_a2km93nsey9gJpgeNW8aTVAwW5QuR&domain=${value}`);
 }
